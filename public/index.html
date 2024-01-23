@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>My Academy API Documentation</title>
+  </head>
+  <body>
+    <div class="section">
+      <h1>My Academy API Documentation</h1>
+
+      <div class="section">
+        <h2>Key Features</h2>
+        <ul>
+          <li>User Authentication</li>
+          <li>Class Management</li>
+          <li>User Profiles</li>
+          <li>Subject</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2>Project Structure</h2>
+        <pre>
+project-root/
+|   |-- controllers/
+|   |   |-- authController.ts
+|   |   |-- classController.ts
+|   |   |-- profileController.ts
+|   |   |-- subjectController.ts
+|   |-- middlewares/
+|   |   |-- authMiddleware.ts
+|   |   |-- errorMiddleware.ts
+|   |-- models/
+|   |   |-- classModel.ts
+|   |   |-- subjectModel.ts
+|   |   |-- userProfileModel.ts
+|   |   |-- userModel.ts
+|   |-- routes/
+|   |   |-- authRoutes.ts
+|   |   |-- classRoutes.ts
+|   |   |-- profileRoutes.ts
+|   |   |-- subjectRoutes.ts
+|   |-- server.ts
+|-- .env
+|-- tsconfig.json
+|-- package.json
+|-- README.md
+      </pre
+        >
+      </div>
+      <div class="endpoint">
+        <h2>User Authentication</h2>
+        <code>POST /api/auth/login</code>
+        <pre class="response">
+{
+  "success": true,
+  "username": "john_doe",
+  "email": "john.doe@example.com",
+  "token": "your.jwt.token"
+}
+    </pre
+        >
+      </div>
+
+      <div class="endpoint">
+        <h2>Class Management</h2>
+        <code>GET /api/classes</code>
+        <pre class="response">
+{
+  "count": 3,
+  "data": [
+    {
+      "_id": "class_id_1",
+      "name": "Math Class"
+    },
+    {
+      "_id": "class_id_2",
+      "name": "Science Class"
+    },
+    {
+      "_id": "class_id_3",
+      "name": "History Class"
+    }
+  ]
+}
+    </pre
+        >
+      </div>
+      <div class="section">
+        <h2>Authentication API Documentation</h2>
+        <h3>Base URL</h3>
+        <p>
+          All endpoints are relative to the base URL: <code>/api/auth</code>
+        </p>
+
+        <div class="endpoint">
+          <h3>User Signup</h3>
+          <p>Endpoint: <code>POST /signup</code></p>
+          <pre>
+          <code>
+            {
+              "username": "example",
+              "email": "example@example.com",
+              "password": "yourpassword"
+            }
+          </code>
+        </pre>
+          <pre>
+          <code>
+            {
+              "success": true,
+              "username": "example",
+              "email": "example@example.com",
+              "token": "your-generated-jwt-token"
+            }
+          </code>
+        </pre>
+        </div>
+
+        <div class="section">
+          <h3>Error Responses</h3>
+          <p>- If the email or password is incorrect during login:</p>
+          <pre>
+    <code>
+      {
+        "success": false,
+        "message": "email or password incorrect"
+      }
+    </code>
+  </pre>
+
+          <p>- If a required field is missing during signup:</p>
+          <pre>
+    <code>
+      {
+        "success": false,
+        "message": "Validation failed: username: this field is required"
+      }
+    </code>
+  </pre>
+        </div>
+
+        <div class="section">
+          <h3>Notes</h3>
+          <p>
+            - Make sure to include the generated JWT token in the headers of
+            subsequent requests for authentication.
+          </p>
+          <p>
+            - Tokens should be included in the <code>Authorization</code> header
+            using the <code>Bearer</code> scheme.
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

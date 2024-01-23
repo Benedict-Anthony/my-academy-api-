@@ -19,6 +19,8 @@ const URL_VERSION = process.env.URL_VERSION;
 const app = express();
 app.use(cors());
 
+app.use(express.static("public"));
+
 if (process.env.DEVELOPEMENT) {
   app.use(morgan("dev"));
 }
