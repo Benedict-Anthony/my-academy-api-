@@ -5,7 +5,6 @@ const errorHandler = (
   res: Response,
   _next: NextFunction
 ) => {
-  console.log(err.name);
   let statusCode = res.statusCode || 500;
 
   let message;

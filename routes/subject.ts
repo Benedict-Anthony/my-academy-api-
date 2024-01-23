@@ -4,6 +4,7 @@ import {
   deleteSubject,
   retriveSubject,
   retriveSubjects,
+  searchFIlterm,
   updateSubject,
 } from "../controllers/subjects";
 import protect from "../middlewares/authMiddleware";
@@ -20,4 +21,6 @@ subjectRouter
   .get(protect, retriveSubject)
   .put(protect, updateSubject)
   .delete(protect, deleteSubject);
+subjectRouter.get("search", searchFIlterm);
+
 export default subjectRouter;

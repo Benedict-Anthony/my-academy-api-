@@ -15,6 +15,16 @@ const retriveSubjects = expressAsyncHandler(
     res.status(200).json({ count: data.length, data });
   }
 );
+const searchFIlterm = async (req: Request, res: Response) => {
+  let data = await Subject.find();
+  console.log(data);
+  data = data.filter(
+    (item) =>
+      item.subjectName.includes(req.params?.subjectName) ||
+      item.description.includes(req.params?.description)
+  );
+  res.status(200).json({ count: data.length, data });
+};
 
 const retriveSubject = expressAsyncHandler(
   async (req: Request, res: Response) => {
@@ -49,4 +59,5 @@ export {
   retriveSubject,
   deleteSubject,
   retriveSubjects,
+  searchFIlterm,
 };
